@@ -133,5 +133,5 @@ If you want to provide a custom error message instead of one that references the
 
 ## Blacklist Providers
 
-There are many blacklist providers.  The plugin includes just a few, I suggest checking out https://w3dt.net/tools/dnsbl to test an IP and get a huge list or providers to potentially include.
+The default list was specifically handpicked to avoid blacklisting legitimate IP addresses. The reason you shouldn't be using just any blacklist is because those are very likely by default to include all regular dynamic IP addresses and those should never be blocked for that reason alone. Most of the blacklists exist to serve e-mail server administrators where accepting mail from dynamic IPs or IPs with misconfigured DNS entires is undesireable regardless of whether or not they are confirmed sources of spam. Example of such a composite blacklist that you shouldn't be using for forms is zen.spamhaus.org as it includes their PBL blacklist. Composite blacklists should always be avoided. When using blacklists you'll be wanting to only filter IP addresses that are caught actively sending spam, participating in botnets and those infected with spam-related malware. Not all of blacklist operators provide documentation to help you understand what exactly is being filtered, so when in doubt – stick to the defaults
 
