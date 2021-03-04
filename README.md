@@ -28,14 +28,13 @@ Here is the default configuration and an explanation of available options:
 enabled: true
 form_error:
 list:
-  - dnsbl-1.uceprotect.net
-  - dnsbl-2.uceprotect.net
-  - dnsbl-3.uceprotect.net
-  - dnsbl.dronebl.org
-  - dnsbl.sorbs.net
-  - zen.spamhaus.org
-  - bl.spamcop.net
-  - list.dsbl.org
+  - css.spamhaus.org
+  - xbl.spamhaus.org
+  - sbl.spamhaus.org
+  - smtp.dnsbl.sorbs.net
+  - web.dnsbl.sorbs.net
+  - recent.spam.dnsbl.sorbs.net
+  - virus.dnsbl.sorbs.net
 ```
 
 Note that if you use the Admin Plugin, a file with your configuration named `dns-blacklist.yaml` will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
