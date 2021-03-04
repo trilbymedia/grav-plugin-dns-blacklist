@@ -78,9 +78,9 @@ You can also use this logic directly in a form action, so that it's checked duri
 
 ```yaml
 ---
-title: 'DNS Blacklist'
+title: 'DNS Blacklist Test'
 form:
-    name: dns-blacklist
+    name: dns-blacklist-test
     fields:
         name:
             label: Name
@@ -101,6 +101,32 @@ form:
 # IP Blacklist Testing
 
 This is a simple blacklisting form action test page.
+```
+
+To create a quick IP checker form you can adapt this form:
+
+```yaml
+---
+title: 'DNS Blacklist Checker'
+form:
+    name: dns-blacklist-checker
+    fields:
+        ip:
+            label: IP Address to Check
+            placeholder: 127.0.0.1
+            type: text
+            validate:
+                required: true
+    buttons:
+        -
+            type: submit
+            value: Submit
+    process:
+        dns-blacklist: "{{ form.value.ip }}"
+        message: '<b>Thanks!</b> All good'
+---
+
+# IP Blacklist Testing
 ```
 
 If you want to provide a custom error message instead of one that references the IP address and the DNSBL providers that block it, you can simply add a custom message in the `form_error:` property of the configuration yaml.
