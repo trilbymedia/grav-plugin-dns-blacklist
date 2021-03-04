@@ -1,10 +1,10 @@
-# DNSBlacklist Plugin
+# DNS Blacklist Plugin
 
 The **DNS Blacklist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). Checks an IP address via mutliple DNS Blacklists to see if it's banned.  It can be used as a PHP function, Twig function as well as via a Form action.
 
 ## Installation
 
-Installing the Dns Blacklist plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.
+Installing the DNS Blacklist plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.
 
 ### GPM Installation (Preferred)
 
@@ -12,7 +12,7 @@ To install the plugin via the [GPM](http://learn.getgrav.org/advanced/grav-gpm),
 
     bin/gpm install dns-blacklist
 
-This will install the Dns Blacklist plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/dns-blacklist`.
+This will install the DNS Blacklist plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/dns-blacklist`.
 
 ### Admin Plugin
 
@@ -103,6 +103,8 @@ form:
 
 This is a simple blacklisting form action test page.
 ```
+
+If you want to provide a custom error message instead of one that references the IP address and the DNSBL providers that block it, you can simply add a custom message in the `form_error:` property of the configuration yaml.
 
 ## Blacklist Providers
 

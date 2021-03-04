@@ -1,21 +1,20 @@
-name: Dns Blacklist
+name: DNS Blacklist
 slug: dns-blacklist
 type: plugin
-version: 0.1.0
+version: 1.0.0
 description: Checks an IP address via mutliple DNS Blacklists
-icon: plug
+icon: ban
 author:
   name: Trilby Media
   email: hello@trilby.media
 homepage: https://github.com/trilbymedia/grav-plugin-dns-blacklist
-demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
+keywords: grav, plugin, dnsbl, spamhaus, spamcop
 bugs: https://github.com/trilbymedia/grav-plugin-dns-blacklist/issues
 docs: https://github.com/trilbymedia/grav-plugin-dns-blacklist/blob/develop/README.md
 license: MIT
 
 dependencies:
-  - { name: grav, version: '>=1.6.0' }
+  - { name: grav, version: '>=1.7.0' }
 
 form:
   validation: loose
