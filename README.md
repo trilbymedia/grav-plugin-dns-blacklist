@@ -67,7 +67,7 @@ Very similar to the PHP usage, you can use the same blacklist class via Twig.  N
 
 ```twig
 {% if dns_blacklist.isBlacklisted  %}
-  <h2 class="Error">Your IP is blacklisted, no for for you!</h2>
+  <h2 class="Error">Your IP is blacklisted, no form for you!</h2>
 {% else %}
   {% include "forms/form.html.twig" with {form: forms('contact-form')} %}
 {% endif %}
