@@ -1,0 +1,11 @@
+enabled: true
+form_error:
+list:
+  - dnsbl-1.uceprotect.net
+  - dnsbl-2.uceprotect.net
+  - dnsbl-3.uceprotect.net
+  - dnsbl.dronebl.org
+  - dnsbl.sorbs.net
+  - zen.spamhaus.org
+  - bl.spamcop.net
+  - list.dsbl.org

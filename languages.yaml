@@ -1,0 +1,6 @@
+en:
+  PLUGIN_DNS_BLACKLIST:
+    FORM_ERROR: Custom Form Error
+    FORM_ERROR_HELP: If provided any blacklisted IPs will see this message instead of the detailed one
+    LIST: Blacklist Providers
+    LIST_HELP: Remove or add any blacklist providers you wish here

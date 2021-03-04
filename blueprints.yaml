@@ -1,0 +1,41 @@
+name: Dns Blacklist
+slug: dns-blacklist
+type: plugin
+version: 0.1.0
+description: Checks an IP address via mutliple DNS Blacklists
+icon: plug
+author:
+  name: Trilby Media
+  email: hello@trilby.media
+homepage: https://github.com/trilbymedia/grav-plugin-dns-blacklist
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/trilbymedia/grav-plugin-dns-blacklist/issues
+docs: https://github.com/trilbymedia/grav-plugin-dns-blacklist/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    form_error:
+      type: text
+      label: PLUGIN_DNS_BLACKLIST.FORM_ERROR
+      help: PLUGIN_DNS_BLACKLIST.FORM_ERROR_HELP
+    list:
+      type: array
+      value_only: true
+      label: PLUGIN_DNS_BLACKLIST.LIST
+      help: PLUGIN_DNS_BLACKLIST.LIST_HELP
