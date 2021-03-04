@@ -3,6 +3,7 @@ namespace Grav\Plugin;
 
 use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
+use Grav\Common\Twig\Twig;
 use Grav\Common\Uri;
 use Grav\Plugin\DNSBlacklist\Blacklist;
 use RocketTheme\Toolbox\Event\Event;
@@ -49,11 +50,17 @@ class DNSBlacklistPlugin extends Plugin
         /** @var Form $form */
         $form = $event['form'];
         $action = $event['action'];
+        $params = $event['params'];
 
         switch ($action) {
             case 'dns-blacklist':
 
-                $ip = Uri::ip();
+                if (!is_bool($params)) {
+                    $ip = $this->grav['twig']->processString((string)$params, array('form' => $form));
+                } else {
+                    $ip = Uri::ip();
+                }
+
                 $blacklisted = $this->blacklist->isBlacklisted($ip);
 
                 if (!empty($blacklisted)) {

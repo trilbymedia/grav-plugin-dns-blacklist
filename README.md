@@ -28,14 +28,13 @@ Here is the default configuration and an explanation of available options:
 enabled: true
 form_error:
 list:
-  - dnsbl-1.uceprotect.net
-  - dnsbl-2.uceprotect.net
-  - dnsbl-3.uceprotect.net
-  - dnsbl.dronebl.org
-  - dnsbl.sorbs.net
-  - zen.spamhaus.org
-  - bl.spamcop.net
-  - list.dsbl.org
+  - css.spamhaus.org
+  - xbl.spamhaus.org
+  - sbl.spamhaus.org
+  - smtp.dnsbl.sorbs.net
+  - web.dnsbl.sorbs.net
+  - recent.spam.dnsbl.sorbs.net
+  - virus.dnsbl.sorbs.net
 ```
 
 Note that if you use the Admin Plugin, a file with your configuration named `dns-blacklist.yaml` will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
@@ -67,7 +66,7 @@ Very similar to the PHP usage, you can use the same blacklist class via Twig.  N
 
 ```twig
 {% if dns_blacklist.isBlacklisted  %}
-  <h2 class="Error">Your IP is blacklisted, no for for you!</h2>
+  <h2 class="Error">Your IP is blacklisted, no form for you!</h2>
 {% else %}
   {% include "forms/form.html.twig" with {form: forms('contact-form')} %}
 {% endif %}
@@ -79,9 +78,9 @@ You can also use this logic directly in a form action, so that it's checked duri
 
 ```yaml
 ---
-title: 'DNS Blacklist'
+title: 'DNS Blacklist Test'
 form:
-    name: dns-blacklist
+    name: dns-blacklist-test
     fields:
         name:
             label: Name
@@ -104,9 +103,35 @@ form:
 This is a simple blacklisting form action test page.
 ```
 
+To create a quick IP checker form you can adapt this form:
+
+```yaml
+---
+title: 'DNS Blacklist Checker'
+form:
+    name: dns-blacklist-checker
+    fields:
+        ip:
+            label: IP Address to Check
+            placeholder: 127.0.0.1
+            type: text
+            validate:
+                required: true
+    buttons:
+        -
+            type: submit
+            value: Submit
+    process:
+        dns-blacklist: "{{ form.value.ip }}"
+        message: '<b>Thanks!</b> All good'
+---
+
+# IP Blacklist Testing
+```
+
 If you want to provide a custom error message instead of one that references the IP address and the DNSBL providers that block it, you can simply add a custom message in the `form_error:` property of the configuration yaml.
 
 ## Blacklist Providers
 
-There are many blacklist providers.  The plugin includes just a few, I suggest checking out https://w3dt.net/tools/dnsbl to test an IP and get a huge list or providers to potentially include.
+The default list was specifically handpicked to avoid blacklisting legitimate IP addresses. The reason you shouldn't be using just any blacklist is because those are very likely by default to include all regular dynamic IP addresses and those should never be blocked for that reason alone. Most of the blacklists exist to serve e-mail server administrators where accepting mail from dynamic IPs or IPs with misconfigured DNS entires is undesireable regardless of whether or not they are confirmed sources of spam. Example of such a composite blacklist that you shouldn't be using for forms is zen.spamhaus.org as it includes their PBL blacklist. Composite blacklists should always be avoided. When using blacklists you'll be wanting to only filter IP addresses that are caught actively sending spam, participating in botnets and those infected with spam-related malware. Not all of blacklist operators provide documentation to help you understand what exactly is being filtered, so when in doubt – stick to the defaults
 
