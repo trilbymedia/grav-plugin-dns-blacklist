@@ -104,6 +104,8 @@ form:
 This is a simple blacklisting form action test page.
 ```
 
+If you want to provide a custom error message instead of one that references the IP address and the DNSBL providers that block it, you can simply add a custom message in the `form_error:` property of the configuration yaml.
+
 ## Blacklist Providers
 
 There are many blacklist providers.  The plugin includes just a few, I suggest checking out https://w3dt.net/tools/dnsbl to test an IP and get a huge list or providers to potentially include.
