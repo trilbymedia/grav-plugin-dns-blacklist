@@ -1,7 +1,7 @@
 name: DNS Blacklist
 slug: dns-blacklist
 type: plugin
-version: 1.0.0
+version: 1.0.1
 description: Checks an IP address via mutliple DNS Blacklists
 icon: ban
 author:
