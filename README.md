@@ -1,6 +1,6 @@
 # DNS Blacklist Plugin
 
-The **DNS Blacklist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). Checks an IP address via mutliple DNS Blacklists to see if it's banned.  It can be used as a PHP function, Twig function as well as via a Form action.
+The **DNS Blacklist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). Checks an IP address via mutliple DNS Blacklists to see if it's banned. This services as a transparent alternative to standard Captcha solutions. It can be used as a PHP function, Twig function as well as via a Form action.
 
 ## Installation
 
@@ -36,6 +36,8 @@ list:
   - recent.spam.dnsbl.sorbs.net
   - virus.dnsbl.sorbs.net
 ```
+
+There are many blacklist providers available, please checkout the **Blacklist Providers** section below for more detaiils.
 
 Note that if you use the Admin Plugin, a file with your configuration named `dns-blacklist.yaml` will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
