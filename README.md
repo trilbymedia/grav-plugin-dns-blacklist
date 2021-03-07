@@ -1,6 +1,6 @@
 # DNS Blacklist Plugin
 
-The **DNS Blacklist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). Checks an IP address via mutliple DNS Blacklists to see if it's banned. This serves as a transparent alternative to standard Captcha solutions. It can be used as a PHP function, Twig function as well as via a Form action.
+The **DNS Blacklist** Plugin is an extension for [Grav CMS](http://github.com/getgrav/grav). Checks an IP address via mutliple DNS Blacklists to see if it's banned. This serves as a transparent alternative to standard CAPTCHA solutions. It can be used as a PHP function, Twig function as well as via a Form action. Please see **Important usage considerations** and **Blacklist providers** sections below to better understand how and where to use the plugin and the options available.
 
 ## Installation
 
@@ -37,7 +37,7 @@ list:
   - virus.dnsbl.sorbs.net
 ```
 
-There are many blacklist providers available, please checkout the **Blacklist Providers** section below for more detaiils.
+There are many blacklist providers available, please check out the **Blacklist Providers** section below for more details.
 
 Note that if you use the Admin Plugin, a file with your configuration named `dns-blacklist.yaml` will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
 
@@ -76,7 +76,7 @@ Very similar to the PHP usage, you can use the same blacklist class via Twig.  N
 
 #### Form Action Usage
 
-You can also use this logic directly in a form action, so that it's checked during form submission.  For example, this is a sample page which defines a very simple form and simply checks for blacklisted IPs.
+You can also use this logic directly in a form action, so that it's checked during form submission. For example, this is a sample page which defines a very simple form and simply checks for blacklisted IPs.
 
 ```yaml
 ---
@@ -132,6 +132,12 @@ form:
 ```
 
 If you want to provide a custom error message instead of one that references the IP address and the DNSBL providers that block it, you can simply add a custom message in the `form_error:` property of the configuration yaml.
+
+## Important usage considerations
+
+Although there are different methods to invoke the blacklist check, please note that using the plugin during form validation may be required for older websites where the form location is already known to spammers and has been abused in the past. In those cases spam IPs will simply issue a direct POST request, thereby subverting any form display logic in Twig templates. Using both Twig and Form methods at the same time may be the best approach for all websites. Twig method will hide your form from form-harvesting robots and Form method will prevent abusing the form by those who are already aware of it.
+
+There's also a small chance of a false positive, that is, a legitimate visitor having a "spammy" blacklisted IP. That's why it's also important to use the Twig method to avoid frustrating the user with an error after they'd already spent time filling your form.
 
 ## Blacklist Providers
 
