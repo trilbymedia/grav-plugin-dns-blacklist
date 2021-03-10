@@ -1,3 +1,9 @@
+# v1.0.2
+## 03/10/2021
+
+1. [](#bugfix)
+    * Fixed an issue with Twig variable not working
+
 # v1.0.1
 ## 03/04/2021
 

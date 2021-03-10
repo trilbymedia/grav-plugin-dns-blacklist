@@ -38,7 +38,8 @@ class DNSBlacklistPlugin extends Plugin
 
         $this->enable([
             'onFormProcessed' => ['onFormProcessed', 0],
-            'onTwigVariables' => ['onTwigVariables', 0],
+            'onTwigPageVariables' => ['onTwigVariables', 0],
+            'onTwigSiteVariables' => ['onTwigVariables', 0],
         ]);
 
         $this->blacklist = new Blacklist();
