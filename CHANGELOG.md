@@ -1,3 +1,9 @@
+# v1.0.3
+## 12/29/2025
+
+1. [](#improved)
+    * Improved PHP 8.4 compatibility
+
 # v1.0.2
 ## 03/10/2021
 
