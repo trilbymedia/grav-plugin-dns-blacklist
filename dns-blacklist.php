@@ -82,7 +82,7 @@ class DNSBlacklistPlugin extends Plugin
         }
     }
 
-    public function onTwigVariables(Event $event = null): void
+    public function onTwigVariables(?Event $event = null): void
     {
         $twig = $this->grav['twig'];
         $twig->twig_vars['dns_blacklist'] = $this->blacklist;
